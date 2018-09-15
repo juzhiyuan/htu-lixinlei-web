@@ -21,7 +21,7 @@
       </mu-form-item>
 
       <mu-form-item ref="CardNo" prop="input" label="卡号">
-        <mu-text-field v-model="form.CardNo"></mu-text-field>
+        <mu-text-field v-model="form.CardNo" @keyup.enter="updateKeyUp"></mu-text-field>
       </mu-form-item>
 
       <mu-form-item prop="input" label="详细信息">
@@ -75,6 +75,9 @@ export default {
     this.$store.commit('updateAppbarTitle', '首页')
   },
   methods: {
+    updateKeyUp () {
+      if (this.mode === 'update') this.updateDialogShow = true
+    },
     async update () {
       for (let key in this.form) {
         if (!this.form[key] || !this.form.CardNo) {
