@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const api = 'https://cz-library-api.shaoyaoju.org'
+const api = 'http://210.42.250.9:3001'
 
 export const getUserinfo = ({
   BH = null
